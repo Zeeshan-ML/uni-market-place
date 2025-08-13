@@ -1,5 +1,4 @@
-// File: uni-market/src/app/page.js
-import Link from 'next/link'
+import Link from 'next/link';
 import { Button } from './components/Button';
 
 export default function Home() {
@@ -11,8 +10,11 @@ export default function Home() {
       <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
         Buy and sell items within your university community. Find textbooks, electronics, furniture, and more at great prices!
       </p>
-      <div>
-        <Button variant="primary" as="a" href="/browse">
+      <div className="space-x-4">
+        <Button variant="primary" as="a" href="/auth/launch">
+          Get Started
+        </Button>
+        <Button variant="secondary" as="a" href="/browse">
           Start Browsing
         </Button>
       </div>
