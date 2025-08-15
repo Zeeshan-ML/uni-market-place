@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Button } from './components/Button';
 
 export default function Home() {
@@ -11,10 +10,10 @@ export default function Home() {
         Buy and sell items within your university community. Find textbooks, electronics, furniture, and more at great prices!
       </p>
       <div className="space-x-4">
-        <Button variant="primary" as="a" href="/auth/launch">
+        <Button variant="primary" href="/auth/launch">
           Get Started
         </Button>
-        <Button variant="secondary" as="a" href="/browse">
+        <Button variant="secondary" href="/browse">
           Start Browsing
         </Button>
       </div>
