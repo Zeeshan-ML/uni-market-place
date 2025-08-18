@@ -1,3 +1,4 @@
+// File: src/app/auth/login/page.js
 'use client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -16,12 +17,21 @@ export default function Login() {
     setIsLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch('https://web-production-0077.up.railway.app/api/v1/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+        }),
       });
-      if (!res.ok) throw new Error('Login failed');
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.message || 'Login failed');
+      }
+
+      // ✅ redirect after successful login
       window.location.href = '/auth/verify/otp';
     } catch (err) {
       setError(err.message);

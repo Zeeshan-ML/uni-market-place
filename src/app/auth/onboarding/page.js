@@ -1,3 +1,4 @@
+// File: src/app/auth/onboarding/page.js
 import Link from 'next/link';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
@@ -18,7 +19,7 @@ export default function Onboarding() {
         </div>
 
         <div className="space-y-4">
-          <Button variant="primary" as="a" href="/auth/sign-up" className="w-full">
+          <Button variant="primary" href="/auth/sign-up" className="w-full">
             Create an Account
           </Button>
           <p className="text-sm text-gray-500 dark:text-gray-400 text-center">

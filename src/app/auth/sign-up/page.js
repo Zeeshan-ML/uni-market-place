@@ -1,3 +1,4 @@
+// File: src/app/auth/sign-up/page.js
 'use client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -16,12 +17,21 @@ export default function SignUp() {
     setIsLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch('https://web-production-0077.up.railway.app/api/v1/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+        }),
       });
-      if (!res.ok) throw new Error('Sign-up failed');
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.message || 'Sign-up failed');
+      }
+
+      // redirect to OTP verification page
       window.location.href = '/auth/verify/otp';
     } catch (err) {
       setError(err.message);
@@ -44,14 +54,6 @@ export default function SignUp() {
         )}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          <div>
-            <Input
-              label="Full Name"
-              className="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 rounded-lg"
-              {...register('name', { required: 'Name is required' })}
-              error={errors.name?.message}
-            />
-          </div>
           <div>
             <Input
               label="Email"
