@@ -1,18 +1,15 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
-
 const inter = Inter({ subsets: ['latin'] });
-
 export const metadata = {
   title: 'University Marketplace',
   description: 'A platform for university students to buy and sell items',
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex flex-col min-h-screen`}>
+      <body className={`${inter.className} bg-gray-50 text-gray-900 dark:bg-gray-900 flex flex-col min-h-screen`}>
         <header className="bg-white dark:bg-gray-800 shadow">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold">
@@ -27,6 +24,9 @@ export default function RootLayout({ children }) {
               </Link>
               <Link href="/auth/sign-up" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
                 Sign Up
+              </Link>
+              <Link href="/create-listing" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                Create Listing
               </Link>
             </nav>
           </div>

@@ -1,6 +1,4 @@
-// File: uni-market/src/app/components/Textarea.js
-// components/ui/Textarea.js
-import React from 'react';
+import React, { useId } from 'react';
 
 const Textarea = ({ 
   label, 
@@ -13,7 +11,8 @@ const Textarea = ({
   required = false,
   ...props 
 }) => {
-  const textareaId = id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const textareaId = id || generatedId;
   
   const sizes = {
     sm: 'px-3 py-1.5 text-sm',

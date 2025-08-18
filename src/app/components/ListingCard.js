@@ -1,3 +1,4 @@
+// File: src/app/components/ListingCard.js
 // src/app/components/ListingCard.js
 import Image from 'next/image';
 

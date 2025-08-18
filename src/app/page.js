@@ -1,3 +1,4 @@
+// File: src/app/page.js
 import { Button } from './components/Button';
 
 export default function Home() {
