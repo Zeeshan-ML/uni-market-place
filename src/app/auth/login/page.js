@@ -1,4 +1,3 @@
-// File: src/app/auth/login/page.js
 'use client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -29,6 +28,13 @@ export default function Login() {
       if (!res.ok) {
         const errData = await res.json();
         throw new Error(errData.message || 'Login failed');
+      }
+
+      const dataRes = await res.json();
+
+      // ✅ Save token for later use
+      if (dataRes.access_token) {
+        localStorage.setItem('token', dataRes.access_token);
       }
 
       // ✅ redirect after successful login

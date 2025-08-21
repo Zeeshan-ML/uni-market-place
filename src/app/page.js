@@ -11,13 +11,16 @@ export default function Home() {
         Buy and sell items within your university community. Find textbooks, electronics, furniture, and more at great prices!
       </p>
       <div className="space-x-4">
-        <Button variant="primary" href="/auth/launch">
-          Get Started
-        </Button>
-        <Button variant="secondary" href="/browse">
+        <Button variant="primary" href="/browse">
           Start Browsing
         </Button>
+        <Button variant="secondary" href="/create-listing">
+          Create a Listing
+        </Button>
       </div>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mt-6">
+        Returning user? Check your <a href="/my-listings" className="underline">My Listings</a> or <a href="/favorites" className="underline">Favorites</a>.
+      </p>
     </div>
   );
 }

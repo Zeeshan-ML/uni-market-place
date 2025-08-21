@@ -1,11 +1,17 @@
+// File: src/app/layout.js
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+
 const inter = Inter({ subsets: ['latin'] });
+
 export const metadata = {
   title: 'University Marketplace',
   description: 'A platform for university students to buy and sell items',
+  manifest: '/manifest.json',        // ✅ PWA support
+  themeColor: '#2980B9',             // ✅ install bar color
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -16,17 +22,29 @@ export default function RootLayout({ children }) {
               <Link href="/">University Marketplace</Link>
             </h1>
             <nav className="space-x-4">
-              <Link href="/auth/launch" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                Get Started
+              <Link href="/browse" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                Browse
+              </Link>
+              <Link href="/my-listings" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                My Listings
+              </Link>
+              <Link href="/favorites" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                Favorites
+              </Link>
+              <Link href="/notifications" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                Notifications
+              </Link>
+              <Link href="/admin" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                Admin
+              </Link>
+              <Link href="/create-listing" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                Create Listing
               </Link>
               <Link href="/auth/login" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
                 Login
               </Link>
               <Link href="/auth/sign-up" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
                 Sign Up
-              </Link>
-              <Link href="/create-listing" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                Create Listing
               </Link>
             </nav>
           </div>

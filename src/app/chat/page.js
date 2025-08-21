@@ -1,3 +1,4 @@
+// File: src/app/chat/page.js
 // app/chat/page.js
 'use client';
 
